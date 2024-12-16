@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router';
 import s from './Navigation.module.scss';
 
+const setActive = ({ isActive }) => (isActive ? s.activeLink : s.link)
+
 function Navigation() {
   return (
     <nav>
@@ -8,7 +10,7 @@ function Navigation() {
         <li className={s.navigationItem}>
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+            className={setActive}
           >
             Home
           </NavLink>
@@ -16,7 +18,7 @@ function Navigation() {
         <li className={s.navigationItem}>
           <NavLink
             to="/about"
-            className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+            className={setActive}
           >
             About
           </NavLink>
@@ -24,7 +26,7 @@ function Navigation() {
         <li className={s.navigationItem}>
           <NavLink
             to="/contact"
-            className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+            className={setActive}
           >
             Contact
           </NavLink>
